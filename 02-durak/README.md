@@ -1,3 +1,4 @@
+https://github.com/KeKsBoTer/durak-webapp
 1)
 1. Use a pre-built image, preferably one with Node and npm.
 2. Copy the downloaded game repository into it.
