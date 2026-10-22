@@ -1,0 +1,13 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf:/etc/nginx
+      - ./www:/www
+  fpm:
+    build: ./php-fpm
+    volumes:
+      - ./php-fpm/conf:/etc/php85
+      - ./www:/www
