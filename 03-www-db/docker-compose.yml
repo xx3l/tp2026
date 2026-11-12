@@ -6,8 +6,22 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx
       - ./www:/www
-  fpm:
+    depends_on:
+      - php
+  php:
     build: ./php-fpm
     volumes:
       - ./php-fpm/conf:/etc/php85
       - ./www:/www
+    depends_on:
+      - db-mysql
+  db-mysql:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: secret
+  db-pgsql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: secret
+  db-redis:
+    image: redis
